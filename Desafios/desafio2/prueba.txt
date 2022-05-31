@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Mariano",
+    "precio": 100,
+    "thumbnail": "www.mariano.com.ar",
+    "id": 1
+  },
+  {
+    "title": "Mariano",
+    "precio": 100,
+    "thumbnail": "www.mariano.com.ar",
+    "id": 2
+  }
+]
