@@ -2,9 +2,9 @@ import logo from './logo.svg';
 import './App.css';
 
 //importamos los componentes
-import CompShowBlogs from './blog/ShowBlogs';
-import CompCreateBlog from './blog/CreateBlog';
-import CompEditBlog from './blog/EditBlog';
+import CompShowProducts from './product/ShowProducts';
+import CompCreateProduct from './product/CreateProduct';
+import CompEditProduct from './product/EditProduct';
 
 //importamos el router
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -18,9 +18,9 @@ function App() {
       </header>
       <BrowserRouter>
         <Routes>
-            <Route path='/' element={ <CompShowBlogs />} />
-            <Route path='/create' element={ <CompCreateBlog />} />
-            <Route path='/edit/:id' element={ <CompEditBlog />} />
+            <Route path='/' element={ <CompShowProducts />} />
+            <Route path='/create' element={ <CompCreateProduct />} />
+            <Route path='/edit/:id' element={ <CompEditProduct />} />
         </Routes>
       </BrowserRouter>
       

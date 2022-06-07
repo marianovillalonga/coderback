@@ -1,21 +1,21 @@
 //importamos el Modelo
-import BlogModel from "../models/BlogModel.js";
+import ProductModel from "../models/ProductModel.js";
 
 //** Métodos para el CRUD **/
 
 //Mostrar todos los registros
-export const getAllBlogs = async (req, res) => {
+export const getAllProduct = async (req, res) => {
     try {
-        const blogs = await BlogModel.findAll()
+        const blogs = await ProductModel.findAll()
         res.json(blogs)
     } catch (error) {
         res.json( {message: error.message} )
     }
 }
 //Mostrar un registro
-export const getBlog = async (req, res) => {
+export const getProduct = async (req, res) => {
         try {
-            const blog = await BlogModel.findAll({
+            const blog = await ProductModel.findAll({
                 where:{ id:req.params.id }
             })
             res.json(blog[0])
@@ -24,9 +24,9 @@ export const getBlog = async (req, res) => {
         }
 }
 //Crear un registro
-export const createBlog = async (req, res) => {
+export const createProduct = async (req, res) => {
     try {
-       await BlogModel.create(req.body)
+       await ProductModel.create(req.body)
        res.json({
            "message":"¡Registro creado correctamente!"
        })
@@ -35,9 +35,9 @@ export const createBlog = async (req, res) => {
     }
 }
 //Actualizar un registro
-export const updateBlog = async (req, res) => {
+export const updateProduct = async (req, res) => {
     try {
-        await BlogModel.update(req.body, {
+        await ProductModel.update(req.body, {
             where: { id: req.params.id}
         })
         res.json({
@@ -48,9 +48,9 @@ export const updateBlog = async (req, res) => {
     }
 }
 //Eliminar un registro
-export const deleteBlog = async (req, res) => {
+export const deleteProduct = async (req, res) => {
     try {
-        await BlogModel.destroy({ 
+        await ProductModel.destroy({ 
             where: { id : req.params.id }
         })
         res.json({

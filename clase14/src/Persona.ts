@@ -10,5 +10,5 @@ export default class Persona {
     getFullName(): string {
       return `${this.fname} ${this.lname}`;
     }
-   }
+}
    

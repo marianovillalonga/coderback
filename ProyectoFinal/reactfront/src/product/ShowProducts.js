@@ -2,26 +2,26 @@ import axios from 'axios'
 import {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 
-const URI = 'http://localhost:8000/blogs/'
+const URI = 'http://localhost:8000/products/'
 
 
-const CompShowBlogs = () => {
+const CompShowProducts = () => {
     
-    const [blogs, setBlog] = useState([])
+    const [products, setProduct] = useState([])
     useEffect( ()=>{
-        getBlogs()
+        getProducts()
     },[])
 
-    //procedimineto para mostrar todos los blogs
-    const getBlogs = async () => {
+    //procedimineto para mostrar todos los productos
+    const getProducts = async () => {
         const res = await axios.get(URI)
-        setBlog(res.data)
+        setProduct(res.data)
     }
 
-    //procedimineto para eliminar un blog
-    const deleteBlog = async (id) => {
+    //procedimineto para eliminar un productos
+    const deleteProduct = async (id) => {
        await axios.delete(`${URI}${id}`)
-       getBlogs()
+       getProducts()
     }
 
     return(
@@ -34,17 +34,19 @@ const CompShowBlogs = () => {
                             <tr>
                                 <th>Title</th>
                                 <th>Content</th>
+                                <th>Price</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            { blogs.map ( (blog) => (
-                                <tr key={ blog.id}>
-                                    <td> { blog.title } </td>
-                                    <td> { blog.content } </td>
+                            { products.map ( (product) => (
+                                <tr key={ product.id}>
+                                    <td> { product.title } </td>
+                                    <td> { product.content } </td>
+                                    <td> { product.price } </td>
                                     <td>
-                                        <Link to={`/edit/${blog.id}`} className='btn btn-info'><i className="fas fa-edit"></i></Link>
-                                        <button onClick={ ()=>deleteBlog(blog.id) } className='btn btn-danger'><i className="fas fa-trash-alt"></i></button>
+                                        <Link to={`/edit/${product.id}`} className='btn btn-info'><i className="fas fa-edit"></i></Link>
+                                        <button onClick={ ()=>deleteProduct(product.id) } className='btn btn-danger'><i className="fas fa-trash-alt"></i></button>
                                     </td>
                                 </tr>
                             )) }
@@ -57,4 +59,4 @@ const CompShowBlogs = () => {
 
 }
 
-export default CompShowBlogs
+export default CompShowProducts

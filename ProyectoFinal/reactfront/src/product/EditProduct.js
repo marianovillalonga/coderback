@@ -2,9 +2,9 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-const URI = 'http://localhost:8000/blogs/'
+const URI = 'http://localhost:8000/products/'
 
-const CompEditBlog = () => {
+const CompEditProduct = () => {
     const [title, setTitle] = useState('')    
     const [content, setContent] = useState('')    
     const navigate = useNavigate()
@@ -21,10 +21,10 @@ const CompEditBlog = () => {
     }
 
     useEffect( ()=>{
-        getBlogById()
+        getProductById()
     },[])
 
-    const getBlogById = async () => {
+    const getProductById = async () => {
         const res = await axios.get(URI+id)
         setTitle(res.data.title)
         setContent(res.data.content)
@@ -51,7 +51,16 @@ const CompEditBlog = () => {
                     type="text"
                     className="form-control"
                 />
-            </div>            
+            </div>     
+            <div className="mb-3">
+                <label  className="form-label">Price</label>
+                <textarea
+                    value={content}
+                    onChange={ (e)=> setContent(e.target.value)}
+                    type="text"
+                    className="form-control"
+                />
+            </div>         
             <button type="submit" className="btn btn-primary">Update</button>
         </form>
     </div>
@@ -59,4 +68,4 @@ const CompEditBlog = () => {
 
 }
 
-export default CompEditBlog
+export default CompEditProduct
