@@ -1,0 +1,26 @@
+<!-- index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <%- include('./partials/head') %>
+</head>
+<body>
+ <div class="container">
+   <header>
+    <%- include('./partials/header', { current: 'productos' }) %>
+   </header>
+   <main>
+    <div class="jumbotron">
+      <h3>Productos</h3>
+      <ul>
+        <% productos.forEach(productos => { %>
+          <li><%= productos.nombre %> <%= productos.apellido %></li>
+        <% }) %>
+      </ul>
+    </div>
+  </main>
+
+   <%- include('./partials/footer') %>
+ </div>
+</body>
+</html>
