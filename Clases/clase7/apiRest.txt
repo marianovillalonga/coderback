@@ -1,0 +1,11 @@
+/api/user
+HTTP 1.1 200 OK
+HTTP 1.1 304 Not Modified
+
+[
+    {
+        "id": 1,
+        "name": "Mariano Villalonga",
+        "username": "mvillalonga"
+    }
+]
