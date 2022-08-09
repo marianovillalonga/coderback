@@ -1,0 +1,1 @@
+console.log("Hola coder"),setTimeout((()=>{console.log("mi nombre es")}),2e3),setTimeout((()=>{console.log("Mariano Villalonga")}),3e3);
